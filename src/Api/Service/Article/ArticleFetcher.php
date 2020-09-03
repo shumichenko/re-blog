@@ -40,7 +40,7 @@ class ArticleFetcher extends BasicService
         $offset = 0;
 
         $articles = $this->getPortionOfArticles(true, $limit, $offset);
-        if (is_null($articles))
+        if (empty($articles))
             return '';
         
         $articleString = $this->serializeArticles($articles);
