@@ -22,7 +22,7 @@ class Article
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=600)
+     * @ORM\Column(type="string", length=600, unique=true)
      * @Groups({"admin", "user"})
      */
     private $alias;
