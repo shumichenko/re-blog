@@ -40,7 +40,7 @@ class ArticleController extends AbstractController
     public function getListOfArticles(ArticleFetcher $articleFetcher) : JsonResponse
     {
         $articles = $articleFetcher->getSerializedArticles();
-        $articles = '';
+     
         return empty($articles) ?
             $this->respond('', JsonResponse::HTTP_NO_CONTENT) :
             $this->respond($articles);
