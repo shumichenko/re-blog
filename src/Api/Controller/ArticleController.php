@@ -16,13 +16,24 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
  */
 class ArticleController extends AbstractController
 {
+    private $articleFacade;
+
+    /**
+     * ArticleController constructor
+     * 
+     * @param ArticleFacade $articleFacade Service interaction class
+     */
+    public function __construct(ArticleFacade $articleFacade)
+    {
+        $this->articleFacade = $articleFacade;
+    }
     /**
      * Passes an article to service to upload into database
      *
      * @param ArticleUploader $articleUploader
      * @return JsonResponse
      */
-    public function createArticle(ArticleUploader $articleUploader) : JsonResponse
+    public function createArticle() : JsonResponse
     {
         return JsonResponse::fromJsonString('', JsonResponse::HTTP_CREATED);
         // $this->respond('', JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
@@ -34,9 +45,9 @@ class ArticleController extends AbstractController
      * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getListOfArticles(ArticleFacade $articleFacade) : JsonResponse
+    public function getListOfArticles() : JsonResponse
     {
-        $articles = $articleFacade->getArticles();
+        $articles = $this->articleFacade->getArticles();
      
         return empty($articles) ?
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
@@ -49,9 +60,9 @@ class ArticleController extends AbstractController
      * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getArticlesQuantity(ArticleFacade $articleFacade) : JsonResponse
+    public function getArticlesQuantity() : JsonResponse
     {
-        $articlesQuantity = $articleFacade->getArticlesQuantity();
+        $articlesQuantity = $this->articleFacade->getArticlesQuantity();
 
         return empty($articlesQuantity) ?
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND) :
@@ -64,9 +75,9 @@ class ArticleController extends AbstractController
      * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getArticle(ArticleFacade $articleFacade, $alias) : JsonResponse
+    public function getArticle($alias) : JsonResponse
     {
-        $article = $articleFacade->getSingleArticle($alias);
+        $article = $this->articleFacade->getSingleArticle($alias);
         
         return empty($article) ? 
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND) : 
