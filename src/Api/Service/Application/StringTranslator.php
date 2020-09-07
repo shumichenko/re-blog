@@ -1,13 +1,15 @@
 <?php
 
-namespace App\Api\Service\Article;
+namespace App\Api\Service\Application;
 
 class StringTranslator
 {
     /**
-     * @var array $library
+     * @return array Library array
      */
-    private $library = [
+    private static function getLibrary() : array
+    {
+        $library = [
         'а' => 'a',   'б' => 'b',   'в' => 'v',
         'г' => 'g',   'д' => 'd',   'е' => 'e',
         'ё' => 'yo',  'ж' => 'zh',  'з' => 'z',
@@ -31,16 +33,17 @@ class StringTranslator
         'Ч' => 'Ch',  'Ш' => 'Sh',  'Щ' => 'Sch',
         'Ь' => '',    'Ы' => 'Y',   'Ъ' => '',
         'Э' => 'E',   'Ю' => 'Yu',  'Я' => 'Ya',
-    ];
+        ];
+    }
 
     /**
      * Translates Russian chars to English counterparts
      *
-     * @param string $string
-     * @return string
+     * @param string $string String to translate
+     * @return string Translated string
      */
     public function translateStringCharsToEnglish(string $string) : string
     {
-        return strtr($string, $this->library);
+        return strtr($string, self::getLibrary());
     }
 }

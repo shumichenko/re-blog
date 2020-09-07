@@ -2,14 +2,16 @@
 
 namespace App\Api\Controller;
 
-use App\Api\Service\Article\ArticleFetcher;
-use App\Api\Service\Article\ArticleUploader;
-use Symfony\Component\HttpFoundation\Request;
+use App\Api\Service\Domain\ArticleFacade;
+use App\Api\Service\Domain\ArticleUploader;
+use App\Api\Service\Domain\ArticleFetcher;
+use App\Api\Service\Domain\ArticleSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * Class ArticleController
+ * 
  * @package App\Api\Controller
  */
 class ArticleController extends AbstractController
@@ -17,18 +19,13 @@ class ArticleController extends AbstractController
     /**
      * Passes an article to service to upload into database
      *
-     * @param Request $request
      * @param ArticleUploader $articleUploader
      * @return JsonResponse
      */
-    public function createArticle(Request $request, ArticleUploader $articleUploader) : JsonResponse
+    public function createArticle(ArticleUploader $articleUploader) : JsonResponse
     {
-        $data = [
-            'result' => "Article successfully created!"
-        ];
-        return $this->respond(
-            json_encode($data), JsonResponse::HTTP_CREATED
-        );
+        return JsonResponse::fromJsonString('', JsonResponse::HTTP_CREATED);
+        // $this->respond('', JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
     }
 
     /**
@@ -37,13 +34,13 @@ class ArticleController extends AbstractController
      * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getListOfArticles(ArticleFetcher $articleFetcher) : JsonResponse
+    public function getListOfArticles(ArticleFacade $articleFacade) : JsonResponse
     {
-        $articles = $articleFetcher->getSerializedArticles();
+        $articles = $articleFacade->getArticles();
      
         return empty($articles) ?
-            $this->respond('', JsonResponse::HTTP_NO_CONTENT) :
-            $this->respond($articles);
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
+            JsonResponse::fromJsonString($articles);
     }
 
     /**
@@ -52,11 +49,13 @@ class ArticleController extends AbstractController
      * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getArticlesQuantity(ArticleFetcher $articleFetcher) : JsonResponse
+    public function getArticlesQuantity(ArticleFacade $articleFacade) : JsonResponse
     {
-        $articlesQuantity = $articleFetcher->getArticlesQuantity();
+        $articlesQuantity = $articleFacade->getArticlesQuantity();
 
-        return $this->respond($articlesQuantity);
+        return empty($articlesQuantity) ?
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND) :
+            JsonResponse::fromJsonString($articlesQuantity);
     }
 
     /**
@@ -65,29 +64,16 @@ class ArticleController extends AbstractController
      * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getArticle(ArticleFetcher $articleFetcher, $alias) : JsonResponse
+    public function getArticle(ArticleFacade $articleFacade, $alias) : JsonResponse
     {
-        $article = $articleFetcher->getArticle($alias);
-
-        return is_null($article) ? 
-            $this->json('', JsonResponse::HTTP_NOT_FOUND) : 
-            $this->json($article, JsonResponse::HTTP_OK);
+        $article = $articleFacade->getSingleArticle($alias);
+        
+        return empty($article) ? 
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND) : 
+            JsonResponse::fromJsonString($article, JsonResponse::HTTP_OK);
     }
 
     #public function updateArticle() {}
 
     #public function deleteArticle() {}
-    
-    /**
-     * Returns a JSON response
-     *
-     * @param $data
-     * @param int $status
-     * @param array $headers
-     * @return JsonResponse
-     */
-    public function respond($data, $status = JsonResponse::HTTP_OK, $headers = []) : JsonResponse
-    {
-        return JsonResponse::fromJsonString($data, $status, $headers);
-    }
 }

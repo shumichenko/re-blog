@@ -1,0 +1,20 @@
+
+list_articles:
+  path: /articles
+  controller: App\Api\Controller\ArticleController::getListOfArticles
+  methods: GET|HEAD
+
+get_articles_quantity:
+  path: /articles/quantity
+  controller: App\Api\Controller\ArticleController::getArticlesQuantity
+  methods: GET|HEAD
+
+get_article:
+  path: /articles/{alias}
+  controller: App\Api\Controller\ArticleController::getArticle
+  methods: GET|HEAD
+
+create_article:
+  path: /articles
+  controller: App\Api\Controller\ArticleController::createArticle
+  methods: POST

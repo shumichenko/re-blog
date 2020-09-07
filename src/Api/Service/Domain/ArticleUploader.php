@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Api\Service\Article;
+namespace App\Api\Service\Domain;
 
 use App\Api\Entity\Article;
-use App\Api\Service\BasicService;
+use App\Api\Service\Domain\DomainService;
 
-class ArticleUploader extends BasicService
+class ArticleUploader extends DomainService
 {
     public function uploadArticle()
     {/*

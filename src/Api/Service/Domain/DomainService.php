@@ -1,14 +1,15 @@
 <?php
 
-namespace App\Api\Service;
+namespace App\Api\Service\Domain;
 
 use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Class BasicDataService
- * @package App\Service
+ * Class DomainService
+ * 
+ * @package App\Api\Service\Domain
  */
-class BasicService
+class DomainService
 {
     /**
      * @var EntityManagerInterface
@@ -16,7 +17,8 @@ class BasicService
     protected $entityManager;
 
     /**
-     * BasicService constructor.
+     * DomainService constructor
+     * 
      * @param EntityManagerInterface $entityManager
      */
     public function __construct(EntityManagerInterface $entityManager)
