@@ -20,8 +20,8 @@ class ArticleSerializer
      * @return string Serialized Article instances
      */
     public function serializeArticles(array $articles) : string
-    {
-        if (is_null($articles))
+    {   
+        if (empty($articles))
             return '';
 
         $contextInstance = new SerializationContext();
