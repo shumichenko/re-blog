@@ -216,6 +216,10 @@
         position: fixed;
         z-index: 1;
     }
+    .Header__Blog__Divider {
+        
+        border-bottom: 1px solid #efefef;
+    }
     .Header__Blog__Fixed {
         box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
     }
@@ -269,6 +273,9 @@
     .Header__Blog__Fixed {
         box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
     }
+    .Header__Blog > .Container__Blog {
+        border-bottom: 1px solid #efefef;
+    }
     .Header__Blog__Hidden {
         margin-top: -65px;
     }
@@ -318,6 +325,9 @@
     }
     .Header__Blog__Fixed {
         box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
+    }
+    .Header__Blog > .Container__Blog {
+        border-bottom: 1px solid #efefef;
     }
     .Header__Blog__Hidden {
         margin-top: -65px;

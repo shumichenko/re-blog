@@ -24,16 +24,6 @@ class ArticleController extends AbstractController
     {
         $this->articleFacade = $articleFacade;
     }
-    /**
-     * Passes an article to service to upload into database
-     *
-     * @return JsonResponse
-     */
-    public function createArticle(): JsonResponse
-    {
-        return JsonResponse::fromJsonString('', JsonResponse::HTTP_CREATED);
-        // $this->respond('', JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
-    }
 
     /**
      * Returns response with list of articles
@@ -78,10 +68,23 @@ class ArticleController extends AbstractController
             JsonResponse::fromJsonString($article, JsonResponse::HTTP_OK);
     }
 
+    /**
+     * Passes an article to service to upload into database
+     *
+     * @return JsonResponse
+     */
+    public function createArticle(): JsonResponse
+    {
+        $success = true; // TODO: write functionality
+        return $success ? 
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_CREATED) :
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_UNPROCESSABLE_ENTITY);
+    }
+
     public function updateArticle(string $alias): JsonResponse 
     {
-        $success = true; // plug
-        return true === $success ?
+        $success = true; // TODO: write functionality
+        return $success ?
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND);
             // HTTP_UNPROCESSABLE_ENTITY exception
@@ -89,8 +92,8 @@ class ArticleController extends AbstractController
 
     public function deleteArticle(string $alias): JsonResponse
     {
-        $success = true; // plug
-        return true === $success ? 
+        $success = true; // TODO: write functionality
+        return $success ? 
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND);
     }

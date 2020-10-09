@@ -15,12 +15,12 @@ export default class BottomNavBar extends Component {
                             <use xlinkHref={FeedIcon+'#Feed'} />
                         </svg>
                     </NavLink>
-                    <NavLink exact={true} to="/about" className="BottomNavBar__Link" activeClassName="Link__Icon__Active">
+                    <NavLink exact={false} to="/about" className="BottomNavBar__Link" activeClassName="Link__Icon__Active">
                         <svg>
                             <use xlinkHref={AboutIcon+'#About'} />
                         </svg>
                     </NavLink>
-                    <NavLink exact={true} to="/projects" className="BottomNavBar__Link" activeClassName="Link__Icon__Active">
+                    <NavLink exact={false} to="/projects" className="BottomNavBar__Link" activeClassName="Link__Icon__Active">
                         <svg>
                             <use xlinkHref={PortfolioIcon+'#Portfolio'} />
                         </svg>

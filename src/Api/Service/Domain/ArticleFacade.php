@@ -42,7 +42,7 @@ class ArticleFacade
      * 
      * @return string String of Article instances
      */
-    public function getArticles() : string
+    public function getArticles(): string
     {
         $requestParameters = RequestParametersProvider::getParameters(['page_number', 'limit', 'search']);
         $pageNumber = $requestParameters['page_number'] ?? 1;
@@ -61,7 +61,7 @@ class ArticleFacade
      * @param string $alias Alias of required article 
      * @return string String of Article instances
      */
-    public function getSingleArticle(string $alias) : string
+    public function getSingleArticle(string $alias): string
     {
         $article = $this->articleFetcher->fetchArticle($alias);
         $serializedArticle = $this->articleSerializer->serializeArticle($article);
@@ -74,7 +74,7 @@ class ArticleFacade
      * 
      * @return string Articles quantity
      */
-    public function getArticlesQuantity() : string
+    public function getArticlesQuantity(): string
     {
         $number = $this->articleFetcher->countArticles();
         $serializedNumber = $this->articleSerializer->serializeNumber($number);

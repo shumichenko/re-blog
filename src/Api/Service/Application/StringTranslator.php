@@ -7,7 +7,7 @@ class StringTranslator
     /**
      * @return array Library array
      */
-    private static function getLibrary() : array
+    private static function getLibrary(): array
     {
         $library = [
         'а' => 'a',   'б' => 'b',   'в' => 'v',
@@ -42,7 +42,7 @@ class StringTranslator
      * @param string $string String to translate
      * @return string Translated string
      */
-    public function translateStringCharsToEnglish(string $string) : string
+    public function translateStringCharsToEnglish(string $string): string
     {
         return strtr($string, self::getLibrary());
     }

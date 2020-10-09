@@ -19,7 +19,7 @@ class ProjectFetcher extends DomainService
      * @pram bool $only_published Allows to count unpublished projects (false statement)
      * @return int Projects quantity
      */
-    public function countProjects(bool $only_published = true) : int
+    public function countProjects(bool $only_published = true): int
     {
         $projectRepository = $this->entityManager->getRepository(Project::class);
         $parameters = [];
@@ -43,7 +43,7 @@ class ProjectFetcher extends DomainService
         int $pageNumber = 1, 
         int $limit = 10,
         bool $only_published = true
-    ) : array {
+    ): array {
         ($pageNumber >= 1) || $pageNumber = 1;
         ($limit < 10 && $limit >= 1) || $limit = 10;
         $offset = ($pageNumber - 1) * $limit;
@@ -67,7 +67,7 @@ class ProjectFetcher extends DomainService
      * @param $alias URL alias parameter
      * @return Project|null Project object
      */
-    public function fetchProject(string $alias, bool $only_published = true) : ?Project
+    public function fetchProject(string $alias, bool $only_published = true): ?Project
     {
         $projectRepository = $this->entityManager->getRepository(Project::class);
         

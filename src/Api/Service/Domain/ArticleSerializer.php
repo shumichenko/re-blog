@@ -21,7 +21,7 @@ class ArticleSerializer
      * @param Article[] Array of Article instances
      * @return string Serialized Article instances
      */
-    public function serializeArticles(array $articles) : string
+    public function serializeArticles(array $articles): string
     {   
         if (empty($articles))
             return '';
@@ -45,7 +45,7 @@ class ArticleSerializer
      * @param ?Article $article Article instance to serialize
      * @return string Serialized article instance
      */
-    public function serializeArticle(?Article $article) : string
+    public function serializeArticle(?Article $article): string
     {
         if (is_null($article))
             return '';
@@ -66,7 +66,7 @@ class ArticleSerializer
      * @param $number Number of articles
      * @return string Serialized number
      */
-    public function serializeNumber(int $number) : string
+    public function serializeNumber(int $number): string
     {
         return 0 <= $number ? 
             json_encode(['articles_quantity' => $number]) : '';

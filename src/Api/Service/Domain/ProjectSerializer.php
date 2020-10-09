@@ -21,7 +21,7 @@ class ProjectSerializer
      * @param Project[] Array of Project instances
      * @return string Serialized Project instances
      */
-    public function serializeProjects(array $projects) : string
+    public function serializeProjects(array $projects): string
     {   
         if (empty($projects))
             return '';
@@ -45,7 +45,7 @@ class ProjectSerializer
      * @param ?Project $project Project instance to serialize
      * @return string Serialized project instance
      */
-    public function serializeProject(?Project $project) : string
+    public function serializeProject(?Project $project): string
     {
         if (is_null($project))
             return '';
@@ -66,7 +66,7 @@ class ProjectSerializer
      * @param $number Number of projects
      * @return string Serialized number
      */
-    public function serializeNumber(int $number) : string
+    public function serializeNumber(int $number): string
     {
         return 0 <= $number ? 
             json_encode(['projects_quantity' => $number]) : '';

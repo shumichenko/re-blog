@@ -11,7 +11,7 @@ use Symfony\Component\HttpFoundation\Request;
  */
 class RequestParametersProvider
 {
-    public static function getParameters(array $requiredParameters) : array
+    public static function getParameters(array $requiredParameters): array
     {
         $requestParameters = Request::createFromGlobals();
         $parametersValues = [];

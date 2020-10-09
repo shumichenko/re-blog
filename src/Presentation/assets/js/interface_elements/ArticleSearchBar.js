@@ -57,7 +57,6 @@ export const ArticleSearchBar = function() {
             if (searchQuery)
                 history.push("/articles");
         }
-        
     };
 
     const handleOnFocus = function(event) {

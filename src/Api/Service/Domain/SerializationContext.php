@@ -27,7 +27,7 @@ class SerializationContext
      * 
      * @return void
      */
-    public function addDefaultContext() : void
+    public function addDefaultContext(): void
     {
         $dateCallback = function ($innerObject) {
             return $innerObject instanceof \DateTime ? $innerObject->format(\DateTime::ISO8601) : '';
@@ -58,7 +58,7 @@ class SerializationContext
      * @param array $context Array with context definitions
      * @return void
      */
-    public function setContext(array $context) : void
+    public function setContext(array $context): void
     {
         $this->context = $context;
     }
@@ -68,7 +68,7 @@ class SerializationContext
      * 
      * @return array Current context
      */
-    public function getContext() : array
+    public function getContext(): array
     {
         return $this->context;
     }

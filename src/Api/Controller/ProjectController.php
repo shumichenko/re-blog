@@ -25,7 +25,6 @@ class ProjectController extends AbstractController
         $this->projectFacade = $projectFacade;
     }
     
-
     /**
      * Returns response with list of projects
      *

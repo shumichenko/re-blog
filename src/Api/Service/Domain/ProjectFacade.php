@@ -43,7 +43,7 @@ class ProjectFacade
      * 
      * @return string String of Project instances
      */
-    public function getProjects() : string
+    public function getProjects(): string
     {
         $requestParameters = RequestParametersProvider::getParameters(['page_number', 'limit', 'search']);
         $pageNumber = $requestParameters['page_number'] ?? 1;
@@ -62,7 +62,7 @@ class ProjectFacade
      * @param string $alias Alias of required project 
      * @return string String of Project instances
      */
-    public function getSingleProject(string $alias) : string
+    public function getSingleProject(string $alias): string
     {
         $project = $this->projectFetcher->fetchProject($alias);
         $serializedProject = $this->projectSerializer->serializeProject($project);
@@ -75,7 +75,7 @@ class ProjectFacade
      * 
      * @return string Projects quantity
      */
-    public function getProjectsQuantity() : string
+    public function getProjectsQuantity(): string
     {
         $number = $this->projectFetcher->countProjects();
         $serializedNumber = $this->projectSerializer->serializeNumber($number);
