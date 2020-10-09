@@ -1,0 +1,14 @@
+.Mockup {
+    background-color: #f7f7f6;
+    width: 910px;
+}
+
+.Mockup__Article__Title {
+    width: 100%;
+}
+
+.Mockup__Article__Content {
+    width: 100%;
+    height: 200px;
+    display: block;
+}

@@ -6,10 +6,18 @@ use App\Api\Service\Domain\ArticleFetcher;
 use App\Api\Service\Domain\ArticleSerializer;
 use App\Api\Service\Application\RequestParametersProvider;
 
+/**
+ * Class ArticleFacade Helps to interact with related services
+ * Delegates some responsibilities
+ * 
+ * @package App\Api\Service\Domain
+ */
 class ArticleFacade
 {
     private $articleFetcher;
     
+    private $articleUploader;
+
     private $articleSerializer;
 
     /**
@@ -18,9 +26,14 @@ class ArticleFacade
      * @param ArticleFetcher $articleFetcher
      * @param ArticleSerializer $articleFetcher
      */
-    public function __construct(ArticleFetcher $articleFetcher, ArticleSerializer $articleSerializer)
+    public function __construct(
+        ArticleFetcher $articleFetcher, 
+        ArticleUploader $articleUploader,
+        ArticleSerializer $articleSerializer 
+        )
     {
         $this->articleFetcher = $articleFetcher;
+        $this->articleUploader = $articleUploader;
         $this->articleSerializer = $articleSerializer;
     }
 
@@ -31,12 +44,12 @@ class ArticleFacade
      */
     public function getArticles() : string
     {
-        $requestParameters = RequestParametersProvider::getParameters(['page_number']);
-        isset($requestParameters['page_number']) && (1 <= $requestParameters['page_number']) ?
-            $pageNumber = $requestParameters['page_number'] :
-            $pageNumber = 1;
+        $requestParameters = RequestParametersProvider::getParameters(['page_number', 'limit', 'search']);
+        $pageNumber = $requestParameters['page_number'] ?? 1;
+        $limit = $requestParameters['limit'] ?? 10;
+        $searchQuery = $requestParameters['search'] ?? '';
        
-        $articles = $this->articleFetcher->fetchPortionOfArticles($pageNumber);
+        $articles = $this->articleFetcher->fetchPortionOfArticles($pageNumber, $limit, $searchQuery);
         $serializedArticles = $this->articleSerializer->serializeArticles($articles);
 
         return $serializedArticles;

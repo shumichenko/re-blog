@@ -15,6 +15,31 @@ get_article:
   methods: GET|HEAD
 
 create_article:
-  path: /articles
+  path: /admin/articles
   controller: App\Api\Controller\ArticleController::createArticle
   methods: POST
+
+update_article:
+  path: /admin/articles/{alias}
+  controller: App\Api\Controller\ArticleController::updateArticle
+  methods: PUT
+
+delete_article:
+  path: /admin/articles/{alias}
+  controller: App\Api\Controller\ArticleController::deleteArticle
+  methods: DELETE
+
+list_project:
+  path: /projects
+  controller: App\Api\Controller\ProjectController::getListOfProjects
+  methods: GET|HEAD
+
+get_projects_quantity:
+  path: /projects/quantity
+  controller: App\Api\Controller\ProjectController::getProjectsQuantity
+  methods: GET|HEAD
+
+get_project:
+  path: /projects/{alias}
+  controller: App\Api\Controller\ProjectController::getProject
+  methods: GET|HEAD

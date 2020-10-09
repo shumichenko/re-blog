@@ -1,0 +1,198 @@
+
+.Article {
+    margin-bottom: 35px;
+}
+
+.Article__Header {
+    font-size: 28px;
+    font-weight: 600;
+    margin: 3px 0 17px 0;
+}
+
+.Article__Text {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: #222;
+    line-height: 1.6;
+    margin-top: 30px;
+}
+.Article__Text > h2 {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    font-size: 22px;
+    margin-top: 40px;
+}
+.Article__Text__AuthorName {
+    color: #5a9d2d;
+    display: inline;
+}
+.Article__Text__Date {
+    color: #616161;
+    margin: 0;
+}
+
+.Article__Section__MetaData {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+}
+.Article__Section__MetaData > p {
+    margin: 0 0 0 6px;
+}
+
+.Article__Image__Author {
+    height: 24px;
+    width: 24px;
+    border-radius: 50%;
+    background-color: #e9e9e9;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: inline-block;
+    
+}
+
+.Article__Mobile {
+    padding-top: 10px;
+    padding-bottom: 5px;
+}
+
+.Article__Mobile__Preview {
+    width: 100%;
+    height: 56vw; /* very clever */
+    border-radius: 4px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow: hidden;
+}
+.Article__Mobile__Shader {
+    background-color: rgba(0, 0, 0, .6);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.Article__Mobile__Header {
+    margin: 2px;
+    font-size: 22px;
+    color: #fff;
+    font-weight: 700;
+}
+
+.Article__Mobile__Text {
+    color: #fff;
+    margin: 3px 0;
+    font-size: 12px;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+}
+
+.Article__Mobile__Label {
+    margin-top: 15px;
+    background-color: #fff;
+    border-radius: 3px;
+}
+.Article__Mobile__Label > p {
+    margin: 0;
+    padding: 8px 12px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .Article__Content {
+        margin-top: 10px;
+    }
+    .Article__Mobile__Container {
+        padding: 0 5px;
+    }
+    .Article__Text__Date {
+        font-weight: 400;
+    }
+    .Article__Section__MetaData {
+        padding: 10px 0;
+    }
+    .Article__Section__MetaData > div {
+        margin-right: 8px;
+    }
+
+    .Article__Header {
+        font-size: 26px;
+    }
+    .Article__Text__AuthorName {
+        font-size: 15px;
+        color: #000;
+    }
+
+    .Article__Image__Author {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .Article__Content {
+        margin-top: 10px;
+    }
+    .Article__Mobile__Container {
+        padding: 0 5px;
+    }
+
+    .Article__Section__MetaData {
+        padding: 10px 0;
+    }
+    .Article__Section__MetaData > div {
+        margin-right: 8px;
+    }
+
+    .Article__Header {
+        font-size: 26px;
+    }
+    .Article__Text__AuthorName {
+        font-size: 15px;
+        color: #000;
+    }
+
+    .Article__Image__Author {
+        height: 40px;
+        width: 40px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .Article__Content {
+        margin-top: 10px;
+    }
+    .Article__Mobile__Container {
+        padding: 0 5px;
+    }
+
+    .Article__Section__MetaData {
+        padding: 10px 0;
+    }
+    .Article__Section__MetaData > div {
+        margin-right: 8px;
+    }
+
+    .Article__Text__AuthorName {
+        font-size: 15px;
+        color: #000;
+    }
+
+    .Article__Image__Author {
+        height: 40px;
+        width: 40px;
+    }
+}

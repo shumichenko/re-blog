@@ -1,0 +1,30 @@
+
+index:
+    path: /{requestUrl}
+    defaults: { _controller: App\Presentation\Controller\IndexController::getUserApp }
+    requirements:
+        requestUrl: "^((?!api|image|admin).)*$"
+    methods: GET|HEAD
+
+admin_index:
+    path: /admin/{requestUrl}
+    defaults: { _controller: App\Presentation\Controller\IndexController::getAdminApp }
+    requirements:
+        requestUrl: "^(.)*$"
+    methods: GET|HEAD
+
+
+get_image:
+    path: /image/{imageName}
+    controller: App\Presentation\Controller\ImageController::getImage
+    methods: GET|HEAD
+
+# upload_image:
+#     path: /image
+#     controller: App\Presentation\Controller\ImageController::uploadImage
+#     methods: POST
+
+# delete_image:
+#     path: /image/{imageName}
+#     controller: App\Presentation\Controller\ImageController::deleteImage
+#     methods: DELETE

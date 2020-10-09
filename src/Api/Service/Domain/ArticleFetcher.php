@@ -35,25 +35,34 @@ class ArticleFetcher extends DomainService
     /**
      * Returns an array of articles
      * 
-     * @param bool $only_published Allows to fetch unpublished articles (false statement)
      * @param int $pageNumber Fetched articles page number
+     * @param int $limit Limit of articles per page
+     * @param string $searchQuery Search query string
+     * @param bool $only_published Allows to fetch unpublished articles (false statement)
      * @return Article[] An array of Article::class object
      */
-    public function fetchPortionOfArticles(int $pageNumber = 1, bool $only_published = true) : array
-    {
-        $limit = 10;
-        $offset = ($pageNumber - 1) * 10;
-        $articleRepository = $this->entityManager->getRepository(Article::class);
+    public function fetchPortionOfArticles(
+        int $pageNumber = 1, 
+        int $limit = 10, 
+        string $searchQuery = '', 
+        bool $only_published = true
+    ): array {
+        ($pageNumber >= 1) || $pageNumber = 1;
+        ($limit < 10 && $limit >= 1) || $limit = 10;
+        $offset = ($pageNumber - 1) * $limit;
+        
         $criteria = [];
+        ($only_published) && $criteria['appearance_status'] = 1;
+        $articleRepository = $this->entityManager->getRepository(Article::class);
 
-        if (true === $only_published)
-            $criteria['appearance_status'] = 1;
-
-        $articles = $articleRepository->findBy(
-            $criteria, ['created_at' => 'DESC'],
-            $limit, $offset
-        );
-
+        if ($searchQuery)
+            $articles = $articleRepository->findMatchBy($searchQuery, $limit, $offset, $only_published);
+        else {   
+            $articles = $articleRepository->findBy(
+                $criteria, ['created_at' => 'DESC'],
+                $limit, $offset
+            );
+        }
         return $articles;
     }
 

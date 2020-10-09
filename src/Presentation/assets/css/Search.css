@@ -1,0 +1,162 @@
+
+.Search { 
+    width: 100%;
+    height: 36px;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+    background-color: #efefef;
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 15px;
+    transition: 0.1s ease-in;
+}
+.Search::placeholder {
+    color: #999;
+}
+.Search:read-write {
+    padding-left: 32px;
+}
+
+.Search__Monitor__Mobile {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    margin-right: -6px;
+    margin-left: -6px;
+    height: calc(100vh - 98px);
+    background-color: #fff;
+}
+
+.Search__Monitor__Visible {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 37px;
+    width: 100%;
+    background-color: #fff;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 4px 10px 3px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    overflow: hidden;
+}
+.Search__Monitor__Invisible {
+    display: none;
+}
+
+.Search__Monitor__Item {
+    display: flex;
+    align-items: center;
+    height: 55px;
+    padding: 0 20px;
+}
+.Search__Monitor__Item:hover {
+    background-color: #efefef;
+}
+.Search__Monitor__Item__Divider {
+    border-bottom: 1px solid #efefef;
+}
+
+.Search__Monitor__Label {
+    font-weight: 500;
+    font-size: 13px;
+    padding: 8px 20px 5px 20px;
+    color: #666666;
+}
+
+.Search__Monitor__Picture  {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    border-radius: 50%;
+    background-color: #afafaf;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.Search__Article {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+
+.Search__Icon {
+    position: absolute;
+    top: 11px;
+    left: 10px;
+}
+.Search__Icon > svg {
+    width: 14px;
+    height: 14px;
+    fill: #bababa;
+}
+
+.Search__DeleteButton {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 13px;
+    cursor: pointer;
+}
+.Search__DeleteButton > svg {
+    width: 11px;
+    height: 11px;
+    fill: #bababa;
+}
+
+.Search__Show__DeleteButton {
+    display: block;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .Search { 
+        border-radius: 8px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .Search { 
+        border-radius: 8px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .Search { 
+        border-radius: 8px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .Search:focus {
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 2px;
+    }
+    .Search__OnInput {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .Search:focus {
+        background-color: #fff;
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 2px 6px 2px;
+    }
+    .Search__OnInput {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}

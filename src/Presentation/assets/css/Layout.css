@@ -1,0 +1,369 @@
+
+/* 
+    Layout styles
+    Layout is a generalized view of the application content
+    Here you can specify rules for different application layouts
+*/
+.Header__Landing {
+    position: absolute;
+    padding-top: 50px;
+    padding-bottom: 10px;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+.Header__Landing__Fixed {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
+    padding-top: 10px;
+    margin-top: 0;
+    position: fixed;    
+}
+.Header__Transition {
+    transition: 0.2s ease-in;
+}
+.Header__Landing__Hidden {
+    margin-top: -65px;  
+}
+.Header__Landing__Navigation {
+    display: flex;
+    flex-direction: row;
+}
+.Header__Landing__Navigation > p {
+    margin: 0 0 0 20px;
+}
+
+.Content__Landing {
+    padding: 0;
+    margin: 0 auto auto auto;
+}
+
+.Header__Blog {
+    height: 65px;
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    transition: 0.2s ease-in;
+}
+
+.Header__Blog__Link__Icon {
+    padding: 19px 16px 19px 16px;
+    margin-left: -12px;
+    margin-right:  5px;
+    height: 100%;
+    cursor: pointer;
+}
+.Header__Blog__Link__Icon > svg {
+    fill: #acacac;
+    height: 20px;
+    width: 20px;
+}
+
+.Header__Blog__Label > h3 {
+    font-size: 20px;
+}
+
+.Header__SearchBar {
+    width: 56%;
+    margin-left: 60px;
+}
+
+.Content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    max-width: 1246px;
+}
+.Content__Blog {
+    padding: 0 30px;
+    margin: 45px auto auto auto;
+}
+.Main {
+    flex-direction: column;
+    display: flex;
+}
+.Main__Blog {
+    max-width: 900px;
+}
+
+.Aside__Blog {
+    margin-left: 60px;
+    display: flex;
+    flex-direction: column;
+}
+
+.Footer__Blog {
+    height: 170px;
+    padding-top: 55px;
+}
+.Footer__Blog__Social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 55px;
+    width: 270px;
+}
+
+.Landing__Biography {
+    display: flex;
+    flex-direction: column;
+}
+.Landing__Biography__Section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 40px 0;
+}
+.Landing__Biography__Block {
+    width: 45%;
+    margin: 5px 0;
+}
+.Landing__Biography__Full {
+    width: 100%;
+    margin: 5px 0;
+}
+.Landing__Contact {
+    width: 60%;
+    margin: 50px 0;
+}
+.Landing__Biography__TileDisplay {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-bottom: 20px;
+}
+.Landing__Biography__Tile {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px 0 15px;
+    margin-top: 15px;
+    margin-right: 25px;
+    background-color: #efefef;
+    border-radius: 5px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.Landing__Biography__Tile > svg {
+    margin-right: 8px;
+}
+
+.Landing__Preview {
+    height: 100vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+.Landing__Preview__Social {
+    margin-top: 31vh;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Landing__Preview__Social__Links {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    justify-content: space-around;
+    align-items: center;
+    margin-left: 20px;
+}
+
+.Landing__Preview__Link__Icon > svg {
+    fill: #acacac;
+    transition: 0.15s ease-in;
+}
+.Landing__Preview__Divider {
+    width: 200px;
+    height: 2px;
+    background-color: #acacac;
+}
+.Landing__Preview__Description {
+    margin-left: 40px;
+    margin-top: 40px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.Landing__Preview__Description__Button {
+    margin-top: 5vh;
+    max-width: 90px;
+}
+
+.Landing__Preview__Description__Button > p {
+    margin: 0;
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.Landing__Preview__Description__Button > p > svg {
+    width: 15px;
+    height: 15px;
+    margin-left: 6px;
+}
+.Landing__Preview__Description > h1 {
+    font-size: 45px;
+    font-weight: 600;
+    line-height: 1.5;
+    margin: 23px 0 23px 0;
+}
+
+@media (max-width: 575.98px) {
+    .Header__Blog {
+        height: 56px;
+        padding: 0 12px;
+        position: fixed;
+        z-index: 1;
+    }
+    .Header__Blog__Fixed {
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
+    }
+    .Header__Blog__Hidden {
+        margin-top: -65px;
+    }
+
+    .Content__Blog {
+        padding: 0 0 70px 0;
+        margin: 56px auto auto auto;
+    }
+
+    .Main__Blog {
+        width: 100%;
+    }
+    .Landing__Contact {
+        width: 100%;
+        margin: 25px 0 25px 0;
+    }
+    .Landing__Biography {
+        margin-bottom: 70px;
+    
+    }
+    .Landing__Biography__Section {
+        margin: 20px 0;
+    }
+    .Landing__Biography__Block {
+        width: 100%;
+        margin: 0;
+    }
+    .Landing__Preview__Description {
+        margin-left: 0;
+        margin-top: 3vh;
+    }
+    .Landing__Preview__Description > h1 {
+        font-size: 6vw;
+    }
+    .Landing__Preview__Divider {
+        width: 25vw;
+        max-width: 200px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .Header__Blog {
+        height: 56px;
+        padding: 0 12px;
+        position: fixed;
+        z-index: 1;
+    }
+    .Header__Blog__Fixed {
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
+    }
+    .Header__Blog__Hidden {
+        margin-top: -65px;
+    }
+
+    .Content__Blog {
+        padding: 0 0 70px 0;
+        margin: 56px auto auto auto;
+    }
+    
+    .Main__Blog {
+        width: 100%;
+    }
+    .Landing__Contact {
+        width: 100%;
+        margin: 25px 0 25px 0;
+    }
+    .Landing__Biography {
+        margin-bottom: 70px;
+    }
+    .Landing__Biography__Section {
+        margin: 20px 0;
+    }
+    .Landing__Biography__Block {
+        width: 100%;
+        margin: 0;
+    }
+    .Landing__Preview__Description {
+        margin-left: 0;
+        margin-top: 3vh;
+    }
+    .Landing__Preview__Description > h1 {
+        font-size: 4vw;
+    }
+    .Landing__Preview__Divider {
+        width: 25vw;
+        max-width: 200px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .Header__Blog {
+        height: 56px;
+        padding: 0 12px;
+        position: fixed;
+        z-index: 1;
+    }
+    .Header__Blog__Fixed {
+        box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
+    }
+    .Header__Blog__Hidden {
+        margin-top: -65px;
+    }
+
+    .Content__Blog {
+        padding: 0 0 70px 0;
+        margin: 56px auto auto auto;
+    }
+    
+    .Main__Blog {
+        width: 100%;
+    }
+    .Landing__Contact {
+        width: 100%;
+        margin: 25px 0 25px 0;
+    }
+    .Landing__Biography {
+        margin-bottom: 70px;
+    }
+    .Landing__Biography__Section {
+        margin: 20px 0;
+    }
+    .Landing__Biography__Block {
+        width: 100%;
+        margin: 0;
+    }
+    .Landing__Preview__Description {
+        margin-left: 0;
+        margin-top: 50px;
+    }
+    .Landing__Preview__Description > h1 {
+        font-size: 4vw;
+    }
+    .Landing__Preview__Divider {
+        width: 25vw;
+        max-width: 200px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .Landing__Preview__Description {
+        margin-left: 25px;
+    }
+    .Landing__Preview__Description > h1 {
+        font-size: 4vw;
+    }
+}

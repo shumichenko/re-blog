@@ -1,0 +1,26 @@
+
+.BottomNavBar {
+    box-shadow: rgba(0, 0, 0, 0.06) 0px -2px 6px 2px;
+    background: #fff;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+}
+
+.BottomNavBar__Wrapper {
+    display: flex;
+    height: 48px;
+    justify-content: space-around;
+}
+
+.BottomNavBar__Link {
+    padding: 14px 30px;
+    height: 100%;
+}
+.BottomNavBar__Link > svg {
+    fill: #acacac;
+    height: 22px;
+    width: 22px;
+}

@@ -6,24 +6,24 @@ use Symfony\Component\Serializer\Normalizer\AbstractNormalizer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use App\Api\Service\Domain\EntitySerializer;
 use App\Api\Service\Domain\SerializationContext;
-use App\Api\Entity\Article;
+use App\Api\Entity\Project;
 
 /**
- * Class ArticleSerializer Serializes article instances
+ * Class ProjectSerializer Serializes project instances
  * 
  * @package App\Api\Service\Domain
  */
-class ArticleSerializer
+class ProjectSerializer
 {
     /**
-     * Serializes multiple Article instances
+     * Serializes multiple Project instances
      * 
-     * @param Article[] Array of Article instances
-     * @return string Serialized Article instances
+     * @param Project[] Array of Project instances
+     * @return string Serialized Project instances
      */
-    public function serializeArticles(array $articles) : string
+    public function serializeProjects(array $projects) : string
     {   
-        if (empty($articles))
+        if (empty($projects))
             return '';
 
         $contextInstance = new SerializationContext();
@@ -34,20 +34,20 @@ class ArticleSerializer
         $context = $contextInstance->getContext();
         
         $serializer = new EntitySerializer(new JsonEncoder, $context);
-        $serializedArticles = $serializer->serializeEntity($articles, 'json');
+        $serializedProjects = $serializer->serializeEntity($projects, 'json');
         
-        return $serializedArticles;
+        return $serializedProjects;
     }
 
     /**
-     * Serializes single Article instance
+     * Serializes single Project instance
      * 
-     * @param ?Article $article Article instance to serialize
-     * @return string Serialized article instance
+     * @param ?Project $project Project instance to serialize
+     * @return string Serialized project instance
      */
-    public function serializeArticle(?Article $article) : string
+    public function serializeProject(?Project $project) : string
     {
-        if (is_null($article))
+        if (is_null($project))
             return '';
         
         $contextInstance = new SerializationContext();
@@ -55,20 +55,20 @@ class ArticleSerializer
         $context = $contextInstance->getContext();
         
         $serializer = new EntitySerializer(new JsonEncoder, $context);
-        $serializedArticle = $serializer->serializeEntity($article, 'json');
+        $serializedProject = $serializer->serializeEntity($project, 'json');
 
-        return $serializedArticle;
+        return $serializedProject;
     }
 
     /**
-     * Serializes number of articles
+     * Serializes number of projects
      * 
-     * @param $number Number of articles
+     * @param $number Number of projects
      * @return string Serialized number
      */
     public function serializeNumber(int $number) : string
     {
         return 0 <= $number ? 
-            json_encode(['articles_quantity' => $number]) : '';
+            json_encode(['projects_quantity' => $number]) : '';
     }
 }

@@ -1,0 +1,101 @@
+
+.Link {
+    text-decoration: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.Link__Header:hover {
+    color: #5a9d2d;
+    transition: all 0.15s ease 0s;
+}
+
+.Link__Text__Active {
+    border-bottom: 2px solid #000;
+}
+.Link__Text__Active:hover {
+    border-bottom: 2px solid transparent;
+}
+.Link__Text__Vertical {
+    margin: 0 0 13px 0;
+}
+
+.Link__Icon__Github > svg {
+    height: 26px;
+    width: 26px;
+}
+.Link__Icon__Github:hover > svg {
+    fill: #000;
+}
+.Link__Icon__Instagram > svg {
+    height: 24px;
+    width: 24px;
+}
+.Link__Icon__Instagram:hover > svg {
+    fill: #dc297b;
+}
+.Link__Icon__Vkontakte > svg {
+    height: 27px;
+    width: 27px;
+}
+.Link__Icon__Vkontakte:hover > svg {
+    fill: #4a76a8;
+}
+.Link__Icon__Php {
+    width: 40px;
+    height: 40px;
+}
+.Link__Icon__Technology {
+    width: 25px;
+    height: 25px;
+}
+.Link__Icon__Active > svg {
+    fill: #5a9d2d;
+}
+
+.Link__Logo {
+    display: block;
+    height: 100%;
+}
+
+/* Medium devices and down */
+@media (max-width: 991.98px) {
+    .Link__Icon__Github > svg {
+        height: 23px;
+        width: 23px;
+    }
+    .Link__Icon__Instagram > svg {
+        height: 21px;
+        width: 21px; 
+    }
+    .Link__Icon__Vkontakte > svg {
+        height: 24px;
+        width: 24px;
+    }
+}
+
+/* Large devices and up */
+@media (min-width: 992px) {    
+    .Link__Text {
+        padding: 2px 0;
+        border-bottom: 2px solid transparent;
+        transition: all 0.3s ease 0s;
+    }
+    .Link__Text::after {
+        content: ' ';
+        padding-right: 1px;
+    }
+    .Link__Text:hover {
+        color: #000;
+        border-bottom: 2px solid #000;
+    }
+    .Link__Text__Active {
+        border-bottom: 2px solid #000;
+    }
+    .Link__Text__Active:hover {
+        border-bottom: 2px solid transparent;
+    }
+    .Link__Text__Vertical {
+        margin: 0 0 13px 0;
+    }
+}

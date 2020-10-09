@@ -1,0 +1,10 @@
+
+api_routing:
+    resource: '../src/Api/Routing/'
+    type: directory
+    condition: "request.headers.get('Accept') matches '/application.json/'"
+    prefix: api
+
+presentation_routing:
+    resource: '../src/Presentation/Routing/'
+    type: directory

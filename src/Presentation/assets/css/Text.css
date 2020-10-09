@@ -1,0 +1,76 @@
+
+.Text__Uppercase {
+    font-size: 15px;
+    font-weight: 600;
+    margin-top: 0;
+    text-transform: uppercase;
+}
+
+.Text__Header {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.Text__Interface {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;    
+    font-size: 15px;
+}
+
+.Text__Landing__Hashtag {
+    font-weight: 400;
+    font-size: 16px;
+}
+.Text__Landing__Green {
+    color: #427322;
+}
+.Text__Landing > h1 {
+    font-size: 30px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+.Text__Landing > h2, h3 {
+    font-size: 18px;
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+.Text__Landing > p {
+    font-family: 'Roboto', Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}
+.Text__Landing > p > h2 {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: #000;
+}
+
+.Text__Link {
+    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-style: normal;
+}
+.Text__Link__Bold {
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.Text__Link__Page {
+    font-size: 15px;
+    font-weight: 500;
+}
+
+@media (max-width: 575.98px) {
+    .Text__Link__Page {
+        font-size: 14px;
+        margin: 9px 0;
+    }
+    .Text__Landing__Hashtag {
+        font-weight: 400;
+        font-size: 14px;
+    }
+    .Text__Landing > h1 {
+        font-size: 25px;
+    }
+    .Text__Landing > h3 {
+        font-size: 17px;
+    }
+}

@@ -1,0 +1,64 @@
+.Projects__Container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Project__Card {
+    width: 45%;
+    margin-bottom: 40px;
+}
+
+.Project__Header {
+    margin: 5px 0;
+}
+
+.Project__Preview {
+    width: 100%;
+    height: 300px;
+    background-color: #efefef;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.Project__Image {
+    max-width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;  
+    border-radius: 4px;
+    box-shadow: rgba(0, 0, 0, 0.06) 0px 0px 5px 2px;
+}
+
+/* Medium devices and down */
+@media (max-width: 991.98px) {
+    .Projects__Container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .Project__Card {
+        width: 100%;
+        margin: 30px 0;
+    }
+
+    .Project__Content {
+        margin: 20px 0;
+    }
+}
+
+/* Large devices and up */
+@media (min-width: 992px) {
+    .Project__Card > .Project__Scalable > .Project__Preview {
+        transition: 0.2s ease-in;
+    }
+    .Project__Card:hover > .Project__Scalable > .Project__Preview {
+        transform: scale(1.04);
+    }
+    .Project__Card:hover > .Text__Link > .Link__Text {
+        border-bottom: 2px solid #000;
+    }
+}

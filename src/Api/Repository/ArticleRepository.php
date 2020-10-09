@@ -18,4 +18,26 @@ class ArticleRepository extends ServiceEntityRepository
     {
         parent::__construct($registry, Article::class);
     }
+
+    /**
+     * Returns Article instances matched query
+     * 
+     * @param string $searchQuery Search query
+     * @param int $limit Maximum instances being fetched
+     * @param int $offset Instances to skip
+     * @return Article[]|null Array of Article instances
+     */
+    public function findMatchBy(string $searchQuery, int $limit, int $offset, bool $only_published = true): ?array
+    {
+        $result = $this->createQueryBuilder('article')
+            ->where('article.appearance_status = :onlyPublished')
+            ->andWhere('article.title LIKE :searchQuery')
+            ->setParameter('onlyPublished', $only_published)
+            ->setParameter('searchQuery', '%'.$searchQuery.'%')
+            ->setFirstResult($offset)
+            ->setMaxResults($limit)
+            ->getQuery()
+            ->getResult();
+        return $result;
+    }
 }

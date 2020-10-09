@@ -1,0 +1,70 @@
+
+/*
+    Elements appearance styles
+    These styles resolve how elements will be displayed depending on the screen size
+*/
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .Hide__OnMedAndDown {
+        display: none !important;
+    }
+    .Hide__OnSmallAndDown {
+        display: none !important;
+    }
+    .Hide__OnExtraSmall {
+        display: none !important;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .Hide__OnMedAndDown {
+        display: none !important;
+    }
+    .Hide__OnSmallAndDown {
+        display: none !important;
+    }
+    .Show__OnExtraSmall {
+        display: none !important;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .Hide__OnMedAndDown {
+        display: none !important;
+    }
+    .Show__OnSmallAndDown {
+        display: none !important;
+    }
+    .Show__OnExtraSmall {
+        display: none !important;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .Show__OnMedAndDown {
+        display: none !important; 
+    }
+    .Show__OnSmallAndDown {
+        display: none !important;
+    }
+    .Show__OnExtraSmall {
+        display: none !important;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .Show__OnMedAndDown {
+        display: none !important; 
+    }
+    .Show__OnSmallAndDown {
+        display: none !important;
+    }
+    .Show__OnExtraSmall {
+        display: none !important;
+    }
+}

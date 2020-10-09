@@ -3,9 +3,6 @@
 namespace App\Api\Controller;
 
 use App\Api\Service\Domain\ArticleFacade;
-use App\Api\Service\Domain\ArticleUploader;
-use App\Api\Service\Domain\ArticleFetcher;
-use App\Api\Service\Domain\ArticleSerializer;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
@@ -30,10 +27,9 @@ class ArticleController extends AbstractController
     /**
      * Passes an article to service to upload into database
      *
-     * @param ArticleUploader $articleUploader
      * @return JsonResponse
      */
-    public function createArticle() : JsonResponse
+    public function createArticle(): JsonResponse
     {
         return JsonResponse::fromJsonString('', JsonResponse::HTTP_CREATED);
         // $this->respond('', JsonResponse::HTTP_UNPROCESSABLE_ENTITY)
@@ -42,13 +38,12 @@ class ArticleController extends AbstractController
     /**
      * Returns response with list of articles
      *
-     * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getListOfArticles() : JsonResponse
+    public function getListOfArticles(): JsonResponse
     {
         $articles = $this->articleFacade->getArticles();
-     
+        
         return empty($articles) ?
             JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
             JsonResponse::fromJsonString($articles);
@@ -57,10 +52,9 @@ class ArticleController extends AbstractController
     /**
      * Returns response with common quantity of articles
      *
-     * @param ArticleFetcher $articleFetcher
      * @return JsonResponse
      */
-    public function getArticlesQuantity() : JsonResponse
+    public function getArticlesQuantity(): JsonResponse
     {
         $articlesQuantity = $this->articleFacade->getArticlesQuantity();
 
@@ -70,12 +64,12 @@ class ArticleController extends AbstractController
     }
 
     /**
-     * Returns single article object
+     * Returns single article
      * 
-     * @param ArticleFetcher $articleFetcher
+     * @param string $alias Current article alias
      * @return JsonResponse
      */
-    public function getArticle($alias) : JsonResponse
+    public function getArticle(string $alias): JsonResponse
     {
         $article = $this->articleFacade->getSingleArticle($alias);
         
@@ -84,7 +78,20 @@ class ArticleController extends AbstractController
             JsonResponse::fromJsonString($article, JsonResponse::HTTP_OK);
     }
 
-    #public function updateArticle() {}
+    public function updateArticle(string $alias): JsonResponse 
+    {
+        $success = true; // plug
+        return true === $success ?
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND);
+            // HTTP_UNPROCESSABLE_ENTITY exception
+    }
 
-    #public function deleteArticle() {}
+    public function deleteArticle(string $alias): JsonResponse
+    {
+        $success = true; // plug
+        return true === $success ? 
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NO_CONTENT) :
+            JsonResponse::fromJsonString('', JsonResponse::HTTP_NOT_FOUND);
+    }
 }

@@ -1,0 +1,69 @@
+
+/* 
+    Layout container styles
+    This element wraps application content to define it's boundaries
+*/
+
+.Container__Blog {
+    margin: 0 auto;
+    padding: 0 60px;
+}
+
+.Container__Blog__Landing {
+    max-width: 1366px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+}
+.Container__Blog__Header {
+    max-width: 1366px;
+    display: flex;
+    flex-grow: 1;
+    align-items: center;
+    height: 100%;
+}
+
+.Container__Blog__Content {
+    width: 100%;
+    flex: 1 0 auto;
+}
+
+.Container__Blog__Footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1366px;
+}
+
+/* Extra small devices (portrait phones, less than 576px) */
+@media (max-width: 575.98px) {
+    .Container__Blog {
+        padding: 0;
+    }
+    .Container__Mobile {
+        margin: 0 12px;
+    }
+}
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .Container__Blog {
+        padding: 0;
+    }
+    .Container__Mobile {
+        margin: 0 12px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    .Container__Blog {
+        padding: 0;
+    }
+    .Container__Mobile {
+        margin: 0 12px;
+    }
+}
