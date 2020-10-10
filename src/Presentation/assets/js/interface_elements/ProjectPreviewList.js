@@ -15,8 +15,6 @@ class ProjectPreviewList extends Component {
     }
 
     componentDidMount() {
-        document.title = "ReBlog – Портфолио";
-        
         getListOfProjects(1, 4).then(response => {
             this.setState({
                 responseStatus: response.status,
